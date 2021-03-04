@@ -1,22 +1,43 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import GlobalContext from "../context/GlobalContext";
 import { Row, Col, Container } from "react-bootstrap";
+import Prismic from '@prismicio/client';
+
 import PageWrapper from "../components/PageWrapper";
 import Content3 from "../sections/landing6/Content3";
 import Locations from "../sections/landing3/Locations";
 import Services from "../sections/landing11/Services";
 import Content1 from "../sections/landing4/Content1";
 
-import bgSection from "../assets/image/inner/video-bg-2.png";
+import bgSection from "../assets/image/thumbnail_videotron.jpg";
+import apiService from "../utils/apiService";
 
 const IndexPage = () => {
     const gContext = useContext(GlobalContext);
+
+    const getCommunity = async () => {
+        apiService.query(
+            Prismic.Predicates.at('document.type', 'video_booster'),
+        ).then(response => {
+            console.log(response.results)
+
+            response.results.forEach(result => {
+                gContext.setVideoUrl(result.data.youtube_url.url)
+            })
+        })
+    }
+
+    useEffect(() => {
+        getCommunity()
+    }, [])
+
+    const headerConfig = {
+        align: "right",
+    };
+
     return (
         <PageWrapper
-            headerConfig={{
-                align: "right",
-                button: "account", // cta, account, null
-            }}
+            headerConfig={headerConfig}
         >
             <div className="inner-banner bg-default-6 pt-24 pt-lg-30 pb-lg-15">
                 <Container>

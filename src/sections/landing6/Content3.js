@@ -11,7 +11,7 @@ const Content = () => {
     return (
         <>
             {/* <!-- Content Area --> */}
-            <div className="content-section bg-default-2 pb-13 pt-13 pb-lg-25">
+            <div className="content-section pb-13 pt-13 pb-lg-25">
                 <Container>
                     <Row className="align-items-center justify-content-center">
                         <Col sm="10" lg="6" className="mb-9 mb-lg-0">

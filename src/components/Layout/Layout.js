@@ -43,97 +43,97 @@ const modes = { light: "light", dark: "dark" };
 // merge the color mode with the base theme
 // to create a new theme object
 const getTheme = (mode) =>
-  merge({}, baseTheme, {
-    colors: get(baseTheme.colors.modes, mode, baseTheme.colors),
-  });
+    merge({}, baseTheme, {
+        colors: get(baseTheme.colors.modes, mode, baseTheme.colors),
+    });
 
 const Layout = ({ children, pageContext }) => {
-  const gContext = useContext(GlobalContext);
+    const gContext = useContext(GlobalContext);
 
-  const [visibleLoader, setVisibleLoader] = useState(true);
+    const [visibleLoader, setVisibleLoader] = useState(true);
 
-  useEffect(() => {
-    AOS.init({ once: true });
-    setVisibleLoader(false);
-  }, []);
+    useEffect(() => {
+        AOS.init({ once: true });
+        setVisibleLoader(false);
+    }, []);
 
-  // Navbar style based on scroll
-  const eleRef = useRef();
+    // Navbar style based on scroll
+    const eleRef = useRef();
 
-  useEffect(() => {
-    window.addEventListener(
-      "popstate",
-      function (event) {
-        // The popstate event is fired each time when the current history entry changes.
-        gContext.closeOffCanvas();
-      },
-      false
-    );
-    window.addEventListener(
-      "pushState",
-      function (event) {
-        // The pushstate event is fired each time when the current history entry changes.
-        gContext.closeOffCanvas();
-      },
-      false
-    );
-  }, [gContext]);
+    useEffect(() => {
+        window.addEventListener(
+            "popstate",
+            function (event) {
+                // The popstate event is fired each time when the current history entry changes.
+                gContext.closeOffCanvas();
+            },
+            false
+        );
+        window.addEventListener(
+            "pushState",
+            function (event) {
+                // The pushstate event is fired each time when the current history entry changes.
+                gContext.closeOffCanvas();
+            },
+            false
+        );
+    }, [gContext]);
 
-  if (pageContext.layout === "bare") {
+    if (pageContext.layout === "bare") {
+        return (
+            <ThemeProvider
+                theme={
+                    gContext.themeDark ? getTheme(modes.dark) : getTheme(modes.light)
+                }
+            >
+                <div data-theme-mode-panel-active data-theme="light">
+                    <GlobalStyle />
+                    <Head>
+                        <title>YukNgaji</title>
+                        <link rel="icon" type="image/png" href={imgFavicon} />
+                    </Head>
+                    <Loader id="loading" className={visibleLoader ? "" : "inActive"}>
+                        <div className="load-circle">
+                            <span className="one"></span>
+                        </div>
+                    </Loader>
+                    <div className="site-wrapper overflow-hidden" ref={eleRef}>
+                        {children}
+                        <Footer isDark={gContext.footerDark} />
+                    </div>
+
+                    <ModalVideo />
+                </div>
+            </ThemeProvider>
+        );
+    }
+
     return (
-      <ThemeProvider
-        theme={
-          gContext.themeDark ? getTheme(modes.dark) : getTheme(modes.light)
-        }
-      >
-        <div data-theme-mode-panel-active data-theme="light">
-          <GlobalStyle />
-          <Head>
-            <title>Shade Pro</title>
-            <link rel="icon" type="image/png" href={imgFavicon} />
-          </Head>
-          <Loader id="loading" className={visibleLoader ? "" : "inActive"}>
-            <div className="load-circle">
-              <span className="one"></span>
-            </div>
-          </Loader>
-          <div className="site-wrapper overflow-hidden" ref={eleRef}>
-            {children}
-            <Footer isDark={gContext.footerDark} />
-          </div>
+        <>
+            <ThemeProvider
+                theme={
+                    gContext.themeDark ? getTheme(modes.dark) : getTheme(modes.light)
+                }
+            >
+                <div data-theme-mode-panel-active data-theme="light">
+                    <GlobalStyle />
+                    <Head>
+                        <title>YukNgaji</title>
+                        <link rel="icon" type="image/png" href={imgFavicon} />
+                    </Head>
+                    <Loader id="loading" className={visibleLoader ? "" : "inActive"} />
+                    <div className="site-wrapper overflow-hidden" ref={eleRef}>
+                        <Header isDark={gContext.headerDark} />
+                        {children}
 
-          <ModalVideo />
-        </div>
-      </ThemeProvider>
+                        <Footer isDark={gContext.footerDark} />
+                    </div>
+
+                    <ModalVideo />
+                </div>
+            </ThemeProvider>
+        </>
     );
-  }
-
-  return (
-    <>
-      <ThemeProvider
-        theme={
-          gContext.themeDark ? getTheme(modes.dark) : getTheme(modes.light)
-        }
-      >
-        <div data-theme-mode-panel-active data-theme="light">
-          <GlobalStyle />
-          <Head>
-            <title>Shade Pro</title>
-            <link rel="icon" type="image/png" href={imgFavicon} />
-          </Head>
-          <Loader id="loading" className={visibleLoader ? "" : "inActive"} />
-          <div className="site-wrapper overflow-hidden" ref={eleRef}>
-            <Header isDark={gContext.headerDark} />
-            {children}
-
-            <Footer isDark={gContext.footerDark} />
-          </div>
-
-          <ModalVideo />
-        </div>
-      </ThemeProvider>
-    </>
-  );
 };
 
 export default Layout;
