@@ -14,7 +14,7 @@ const Communities = () => {
     const getCommunity = async () => {
         apiService.query(
             Prismic.Predicates.at('document.type', 'community'),
-            { orderings: '[my.community.name]' }
+            { pageSize: 100, orderings: '[my.community.name]' }
         ).then(response => {
             setCommunity(response.results);
         })

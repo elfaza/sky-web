@@ -14,6 +14,7 @@ const Events = () => {
     const getEvent = async () => {
         apiService.query(
             Prismic.Predicates.at('document.type', 'event'),
+            { pageSize: 100 }
         ).then(response => {
             setEvent(response.results)
         })
