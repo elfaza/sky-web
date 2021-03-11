@@ -3,12 +3,6 @@ import { Container, Row, Col, Button } from "react-bootstrap";
 import Slider from "react-slick";
 
 import { breakpoints } from "../../utils";
-
-import imgSB1 from "../../assets/image/inner/slide-big-1.png";
-import imgSS1 from "../../assets/image/inner/v-slide-1.jpg";
-import imgSS2 from "../../assets/image/inner/v-slide-2.png";
-import imgSS3 from "../../assets/image/inner/v-slide-3.png";
-import imgSS4 from "../../assets/image/inner/v-slide-4.png";
 import GlobalContext from "../../context/GlobalContext";
 
 const Products = ({ handleActiveShow }) => {
@@ -82,7 +76,7 @@ const Showcase = () => {
 
     return (
         <>
-            <section className="pt-9 pb-9 pr-9 pl-9 bg-default">
+            {/* <section className="pt-9 pb-9 pr-9 pl-9 bg-default">
                 <Container>
                     <Row>
                         <Col xl="7" lg="6">
@@ -148,7 +142,7 @@ const Showcase = () => {
                         </Col>
                     </Row>
                 </Container>
-            </section>
+            </section> */}
         </>
     );
 };
