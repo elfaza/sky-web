@@ -14,7 +14,7 @@ const Content = () => {
                         <Col sm="10" lg="5" className="pr-lg-9">
                             <div className="content-text">
                                 <h2 className="gr-text-4 mb-8">
-                                    Getting started with Albino is easier than ever
+                                    Getting started with SKY
                                 </h2>
                                 <p className="gr-text-8 pr-4 mb-11">
                                     With lots of unique blocks, you can easily build a page
@@ -24,7 +24,7 @@ const Content = () => {
                                 <div className="content-btn">
                                     <Button className="with-icon gr-hover-y">
                                         Download Now
-                    <i className="icon icon-tail-right font-weight-bold"></i>
+                                        <i className="icon icon-tail-right font-weight-bold"></i>
                                     </Button>
                                 </div>
                             </div>

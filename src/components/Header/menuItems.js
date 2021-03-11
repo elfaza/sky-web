@@ -5,19 +5,16 @@ export const menuItems = [
     //     isExternal: true,
     //   },
     {
-        name: "#getting-started",
-        label: "Getting Started",
-    },
-    {
-        name: "#event",
+        name: "events",
         label: "Event",
     },
     {
-        name: "#community",
+        name: "communities",
         label: "Community",
     },
     {
-        name: "#merch",
+        name: "https://www.instagram.com/yukngaji.merch/",
         label: "Merch",
+        isExternal: true
     }
 ];

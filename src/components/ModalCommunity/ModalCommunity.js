@@ -4,6 +4,7 @@ import styled from "styled-components";
 import { Modal } from "react-bootstrap";
 import GlobalContext from "../../context/GlobalContext";
 import { device } from "../../utils";
+import Showcase from "../../sections/product/Showcase";
 
 const ModalStyled = styled(Modal)`
   &.modal {
@@ -83,13 +84,13 @@ const CloseButton = (props) => (
     </CloseWrapper>
 );
 
-const ModalVideo = (props) => {
+const ModalCommunity = (props) => {
     const [loading, setLoading] = useState(true);
     const gContext = useContext(GlobalContext);
 
     const handleClose = () => {
         setLoading(true);
-        gContext.toggleVideoModal();
+        gContext.toggleCommunityModal();
     };
 
     return (
@@ -97,29 +98,18 @@ const ModalVideo = (props) => {
             {...props}
             size="lg"
             centered
-            show={gContext.videoModalVisible}
+            show={gContext.communityModalVisible}
         // onHide={gContext.toggleVideoModal}
         >
             <Modal.Body className="text-center position-relative">
                 <CloseButton onClick={handleClose} />
 
-                <div className={`h-100 d-flex align-items-center w-100`}>
-                    <DivStyled className={`${loading ? "loading" : "loaded"}`}>
-                        <ReactPlayer
-                            url="https://youtu.be/mUXhhmptXak"
-                            width="100%"
-                            height="100%"
-                            controls
-                            playing
-                            onReady={() => {
-                                setLoading(false);
-                            }}
-                        />
-                    </DivStyled>
+                <div className={`h-100 d-flex align-items-center justify-content-center w-100`}>
+                    <Showcase />
                 </div>
             </Modal.Body>
         </ModalStyled>
     );
 };
 
-export default ModalVideo;
+export default ModalCommunity;

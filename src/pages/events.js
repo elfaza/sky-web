@@ -1,19 +1,21 @@
-import React, { useState, useEffect } from "react";
-import { Container, Row, Col } from "react-bootstrap";
-import Link from "next/link";
-import apiService from "../../utils/apiService";
+import React, { useContext, useEffect, useState } from "react";
+import GlobalContext from "../context/GlobalContext";
+import { Row, Col, Container } from "react-bootstrap";
 import Prismic from '@prismicio/client';
 
-const Locations = () => {
+import PageWrapper from "../components/PageWrapper";
+import Link from "next/link";
+import apiService from "../utils/apiService";
+
+const Events = () => {
+    const gContext = useContext(GlobalContext);
     const [events, setEvent] = useState([]);
-    const [showMore, setShowMore] = useState(false);
 
     const getEvent = async () => {
         apiService.query(
             Prismic.Predicates.at('document.type', 'event'),
         ).then(response => {
-            setEvent(response.results.slice(0, 3))
-            setShowMore(response.results.length > 3);
+            setEvent(response.results)
         })
     }
 
@@ -21,15 +23,20 @@ const Locations = () => {
         getEvent()
     }, [])
 
+    const headerConfig = {
+        align: "right",
+    };
+
     return (
-        <>
-            {/* <!-- Locations section --> */}
-            <div className="location-section bg-default-4 pt-14 pb-7 py-lg-23">
+        <PageWrapper
+            headerConfig={headerConfig}
+        >
+            <div className="inner-banner bg-default-6 pt-24 pt-lg-30 pb-lg-15">
                 <Container>
-                    <Row className="justify-content-center">
-                        <Col xl="6" lg="7" md="9">
+                    <Row className="justify-content-center pt-5">
+                        <Col xl="8" lg="9">
                             <div className="section-title text-center mb-11 mb-lg-19">
-                                <h2 className="title gr-text-4 mb-7">Our Events</h2>
+                                <h2 className="title gr-text-4 mb-7">All Events</h2>
                                 <p className="gr-text-8 px-lg-8 mb-0">
                                     With lots of unique blocks, you can easily build a page easily
                                     without any coding.{" "}
@@ -37,6 +44,10 @@ const Locations = () => {
                             </div>
                         </Col>
                     </Row>
+                </Container>
+            </div>
+            <div className="service-section bg-default-2 pt-12 pb-7 pb-lg-25 pt-lg-19">
+                <Container>
                     <Row className="justify-content-center">
                         {events.map(event => {
                             return (
@@ -59,23 +70,10 @@ const Locations = () => {
                                 </Col>
                             )
                         })}
-                        {showMore &&
-                            <Col lg="12">
-                                <div className="more-btn case-btn text-center">
-                                    <Link href="/events">
-                                        <a className="btn-link with-icon mb-0 gr-text-7 font-weight-bold">
-                                            See all events
-                                        <i className="icon icon-tail-right font-weight-bold"></i>
-                                        </a>
-                                    </Link>
-                                </div>
-                            </Col>
-                        }
                     </Row>
                 </Container>
             </div>
-        </>
+        </PageWrapper>
     );
-}
-
-export default Locations;
+};
+export default Events;

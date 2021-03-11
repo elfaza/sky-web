@@ -66,12 +66,10 @@ const Content = () => {
                                     We share common trends and strategies for improving your
                                     rental income and making sure you stay in high demand.
                                 </p>
-                                <Link href="/#">
-                                    <a className="btn-link with-icon gr-text-blue gr-text-7 font-weight-bold mt-9">
-                                        Find out more{" "}
-                                        <i className="icon icon-tail-right font-weight-bold"></i>
-                                    </a>
-                                </Link>
+                                <a className="btn-link with-icon gr-text-blue gr-text-7 font-weight-bold mt-9" href="https://www.instagram.com/yukngaji.merch/" target="_blank">
+                                    Find out more{" "}
+                                    <i className="icon icon-tail-right font-weight-bold"></i>
+                                </a>
                             </div>
                         </Col>
                     </Row>

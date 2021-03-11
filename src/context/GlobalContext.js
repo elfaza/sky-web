@@ -5,8 +5,9 @@ const GlobalContext = React.createContext();
 const GlobalProvider = ({ children }) => {
     const [themeDark, setThemeDark] = useState(false);
     const [videoModalVisible, setVideoModalVisible] = useState(false);
+    const [communityModalVisible, setCommunityModalVisible] = useState(false);
     const [visibleOffCanvas, setVisibleOffCanvas] = useState(false);
-    const [videoUrl, setVideoUrl] = useState(false);
+    const [activeCommunity, setActiveCommunity] = useState(null);
     const [header, setHeader] = useState({
         theme: "light",
         variant: "primary",
@@ -27,6 +28,11 @@ const GlobalProvider = ({ children }) => {
         setVideoModalVisible(!videoModalVisible);
     };
 
+    const toggleCommunityModal = () => {
+        console.log("clicked")
+        setCommunityModalVisible(!communityModalVisible);
+    };
+
     const toggleOffCanvas = () => {
         setVisibleOffCanvas(!visibleOffCanvas);
     };
@@ -42,6 +48,8 @@ const GlobalProvider = ({ children }) => {
                 toggleTheme,
                 videoModalVisible,
                 toggleVideoModal,
+                communityModalVisible,
+                toggleCommunityModal,
                 visibleOffCanvas,
                 toggleOffCanvas,
                 closeOffCanvas,
@@ -49,8 +57,8 @@ const GlobalProvider = ({ children }) => {
                 setHeader,
                 footer,
                 setFooter,
-                videoUrl,
-                setVideoUrl
+                activeCommunity,
+                setActiveCommunity
             }}
         >
             {children}

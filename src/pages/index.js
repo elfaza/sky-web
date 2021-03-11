@@ -15,22 +15,6 @@ import apiService from "../utils/apiService";
 const IndexPage = () => {
     const gContext = useContext(GlobalContext);
 
-    const getCommunity = async () => {
-        apiService.query(
-            Prismic.Predicates.at('document.type', 'video_booster'),
-        ).then(response => {
-            console.log(response.results)
-
-            response.results.forEach(result => {
-                gContext.setVideoUrl(result.data.youtube_url.url)
-            })
-        })
-    }
-
-    useEffect(() => {
-        getCommunity()
-    }, [])
-
     const headerConfig = {
         align: "right",
     };

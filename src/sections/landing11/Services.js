@@ -1,11 +1,13 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import Link from "next/link";
 import { Container, Row, Col } from "react-bootstrap";
 import Prismic from '@prismicio/client';
 
 import apiService from "../../utils/apiService";
+import GlobalContext from "../../context/GlobalContext";
 
 const Services = () => {
+    const gContext = useContext(GlobalContext);
     const [communities, setCommunity] = useState([]);
     const [showMore, setShowMore] = useState(false);
 
@@ -35,7 +37,7 @@ const Services = () => {
                             <p className="gr-text-8 px-lg-7 px-xl-0">
                                 With lots of unique blocks, you can easily build a page
                                 without coding. Build your next landing page.
-                                </p>
+                            </p>
                         </div>
                     </Col>
                 </Row>
@@ -58,8 +60,17 @@ const Services = () => {
                                         alt="..."
                                     />
                                     <div className="card-body bg-white rounded-bottom-10 px-7 py-6">
-                                        <Link href="/#">
-                                            <a className="card-title gr-text-9 text-blackish-blue card-btn-link with-icon mb-0">
+                                        <Link href="#">
+                                            <a
+                                                className="card-title gr-text-9 text-blackish-blue card-btn-link with-icon mb-0"
+                                                href={community.data.info_url.url}
+                                                target="_blank"
+                                            // onClick={e => {
+                                            //     e.preventDefault();
+                                            //     gContext.toggleCommunityModal();
+                                            //     gContext.setActiveCommunity(community);
+                                            // }}
+                                            >
                                                 {community.data.name}{" "}
                                                 <i className="icon icon-tail-right font-weight-bold"></i>
                                             </a>
@@ -72,7 +83,7 @@ const Services = () => {
                     {showMore &&
                         <Col lg="12">
                             <div className="more-btn case-btn text-center">
-                                <Link href="/">
+                                <Link href="/communities">
                                     <a className="btn-link with-icon mb-0 gr-text-7 font-weight-bold">
                                         See all communities
                                     <i className="icon icon-tail-right font-weight-bold"></i>

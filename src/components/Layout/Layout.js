@@ -19,6 +19,7 @@ import { get, merge } from "lodash";
 
 // the full theme object
 import { theme as baseTheme } from "../../utils";
+import ModalCommunity from "../ModalCommunity";
 
 const Loader = styled.div`
   position: fixed;
@@ -103,6 +104,7 @@ const Layout = ({ children, pageContext }) => {
                     </div>
 
                     <ModalVideo />
+                    <ModalCommunity />
                 </div>
             </ThemeProvider>
         );
@@ -130,6 +132,7 @@ const Layout = ({ children, pageContext }) => {
                     </div>
 
                     <ModalVideo />
+                    <ModalCommunity />
                 </div>
             </ThemeProvider>
         </>
