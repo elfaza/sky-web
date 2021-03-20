@@ -23,7 +23,7 @@ const Locations = () => {
 
     return (
         <>
-            {/* <!-- Locations section --> */}
+            {/* <!-- Events section --> */}
             <div className="location-section bg-default-4 pt-14 pb-7 py-lg-23">
                 <Container>
                     <Row className="justify-content-center">

@@ -2,7 +2,7 @@ import React from "react";
 
 import { Container, Row, Col, Button } from "react-bootstrap";
 
-import imgC from "../../assets/image/l1/png/l1-content1-img.png";
+import imgC from "../../assets/image/app.png";
 
 const Content = () => {
     return (

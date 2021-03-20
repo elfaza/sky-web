@@ -2,10 +2,10 @@ import React from "react";
 import Link from "next/link";
 import { Container, Row, Col } from "react-bootstrap";
 
-import imgC1 from "../../assets/image/l4/png/l4-content3-img1.png";
-import imgC2 from "../../assets/image/l4/png/l4-content3-img2.png";
-import imgC3 from "../../assets/image/l4/png/l4-content3-img3.png";
-import imgC4 from "../../assets/image/l4/png/l4-content3-img4.png";
+import imgC1 from "../../assets/image/merch_1.jpeg";
+import imgC2 from "../../assets/image/merch_2.jpeg";
+import imgC3 from "../../assets/image/merch_3.jpeg";
+import imgC4 from "../../assets/image/merch_4.jpeg";
 
 const Content = () => {
     return (

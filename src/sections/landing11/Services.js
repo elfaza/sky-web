@@ -2,27 +2,36 @@ import React, { useContext, useEffect, useState } from "react";
 import Link from "next/link";
 import { Container, Row, Col } from "react-bootstrap";
 import Prismic from '@prismicio/client';
+import useMobileDetect from 'use-mobile-detect-hook';
 
 import apiService from "../../utils/apiService";
 import GlobalContext from "../../context/GlobalContext";
 
+
 const Services = () => {
-    const gContext = useContext(GlobalContext);
     const [communities, setCommunity] = useState([]);
     const [showMore, setShowMore] = useState(false);
+    const detectMobile = useMobileDetect();
 
-    const getCommunity = async () => {
+    const getCommunity = async totalResult => {
         apiService.query(
             Prismic.Predicates.at('document.type', 'community'),
             { orderings: '[my.community.name]' }
         ).then(response => {
-            setCommunity(response.results.slice(0, 8));
-            setShowMore(response.results.length > 8);
+            setCommunity(response.results.slice(0, totalResult));
+            setShowMore(response.results.length > totalResult);
         })
     }
 
     useEffect(() => {
-        getCommunity()
+        let totalResult = 8;
+
+        if (detectMobile.isMobile()) {
+            totalResult = 3;
+        }
+
+        getCommunity(totalResult)
+
     }, [])
 
     return (
