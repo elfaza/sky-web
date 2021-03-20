@@ -120,7 +120,7 @@ const Communities = () => {
                             );
                         })}
 
-                        {filteredEvents().length <= 0 &&
+                        {filteredCommunities().length <= 0 &&
                             <div className="empty-state-container">
                                 <div className="empty-state">
                                     <div className="icon-container">
