@@ -1,17 +1,15 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import { Container, Row, Col } from "react-bootstrap";
 import Prismic from '@prismicio/client';
 import useMobileDetect from 'use-mobile-detect-hook';
 
 import apiService from "../../utils/apiService";
-import GlobalContext from "../../context/GlobalContext";
-
 
 const Services = () => {
+    const detectMobile = useMobileDetect();
     const [communities, setCommunity] = useState([]);
     const [showMore, setShowMore] = useState(false);
-    const detectMobile = useMobileDetect();
 
     const getCommunity = async totalResult => {
         apiService.query(
@@ -66,7 +64,7 @@ const Services = () => {
                                     <img
                                         src={community.data.logo_url.url}
                                         className="card-img-top rounded-top-10"
-                                        alt="..."
+                                        alt={community.data.name}
                                     />
                                     <div className="card-body bg-white rounded-bottom-10 px-7 py-6">
                                         <Link href="#">

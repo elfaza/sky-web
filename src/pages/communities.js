@@ -2,14 +2,18 @@ import React, { useContext, useEffect, useState } from "react";
 import GlobalContext from "../context/GlobalContext";
 import { Row, Col, Container } from "react-bootstrap";
 import Prismic from '@prismicio/client';
+import Fuse from 'fuse.js';
 
 import PageWrapper from "../components/PageWrapper";
 import Link from "next/link";
 import apiService from "../utils/apiService";
 
+import emptyIcon from "../assets/image/empty_data.svg"
+
 const Communities = () => {
     const gContext = useContext(GlobalContext);
     const [communities, setCommunity] = useState([]);
+    const [search, setSearch] = useState("");
 
     const getCommunity = async () => {
         apiService.query(
@@ -18,6 +22,21 @@ const Communities = () => {
         ).then(response => {
             setCommunity(response.results);
         })
+    }
+
+    const filteredCommunities = () => {
+        const options = {
+            threshold: 0.5,
+            keys: ['data.name']
+        }
+
+        const fuse = new Fuse(communities, options)
+
+        const results = fuse.search(search).map(result => ({
+            ...result.item,
+        }))
+
+        return search !== "" ? results : communities;
     }
 
     useEffect(() => {
@@ -51,7 +70,23 @@ const Communities = () => {
             <div className="service-section bg-default-2 pt-12 pb-7 pb-lg-25 pt-lg-19">
                 <Container>
                     <Row className="justify-content-center">
-                        {communities.map(community => {
+                        <Col xs={10} md={6}>
+                            <div className="w-100 mb-7">
+                                <div className="form-group mb-0 min-height-px-50">
+                                    <input
+                                        className="form-control gr-text-9 border h-100"
+                                        type="text"
+                                        id="keyword"
+                                        placeholder="Search Community"
+                                        value={search}
+                                        onChange={event => setSearch(event.target.value)}
+                                    />
+                                </div>
+                            </div>
+                        </Col>
+                    </Row>
+                    <Row className="justify-content-center">
+                        {filteredCommunities().map(community => {
                             return (
                                 <Col
                                     key={community.id}
@@ -62,11 +97,11 @@ const Communities = () => {
                                     data-aos="fade-left"
                                     data-aos-duration="500"
                                 >
-                                    <div className="service-card rounded-10 border border-gray-3 gr-hover-shadow-1">
+                                    <div className="rounded-10 border border-gray-3 gr-hover-shadow-1">
                                         <img
                                             src={community.data.logo_url.url}
                                             className="card-img-top rounded-top-10"
-                                            alt="..."
+                                            alt={community.data.name}
                                         />
                                         <div className="card-body bg-white rounded-bottom-10 px-7 py-6">
                                             <Link href="#">
@@ -84,6 +119,17 @@ const Communities = () => {
                                 </Col>
                             );
                         })}
+
+                        {filteredEvents().length <= 0 &&
+                            <div className="empty-state-container">
+                                <div className="empty-state">
+                                    <div className="icon-container">
+                                        <img src={emptyIcon} />
+                                    </div>
+                                    <p className="text">No data found</p>
+                                </div>
+                            </div>
+                        }
                     </Row>
                 </Container>
             </div>

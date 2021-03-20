@@ -1,0 +1,24 @@
+
+.empty-state {
+    padding: 20px;
+    text-align: center;
+    width: 100%; 
+    display: flex; 
+    flex-direction: column;
+     justify-content: center;
+}
+.empty-state .icon-container {
+    border-radius: 100%;
+    margin: 20px auto;
+    opacity: 0.5;
+}
+.empty-state .icon-container img {
+    width: 200px;
+    height: 200px;
+}
+
+.empty-state .text {
+    color: #000000;
+    opacity: 0.6;
+    font-size: 20px;
+}

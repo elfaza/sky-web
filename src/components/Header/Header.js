@@ -156,63 +156,63 @@ const Header = () => {
                                                                                                             {itemInner.label}
                                                                                                         </a>
                                                                                                     ) : (
-                                                                                                            <Link
-                                                                                                                href={`/${itemInner.name}`}
-                                                                                                            >
-                                                                                                                <a>{itemInner.label}</a>
-                                                                                                            </Link>
-                                                                                                        )}
+                                                                                                        <Link
+                                                                                                            href={`/${itemInner.name}`}
+                                                                                                        >
+                                                                                                            <a>{itemInner.label}</a>
+                                                                                                        </Link>
+                                                                                                    )}
                                                                                                 </li>
                                                                                             )
                                                                                         )}
                                                                                     </ul>
                                                                                 </li>
                                                                             ) : (
-                                                                                    <li className="drop-menu-item">
-                                                                                        {subItem.isExternal ? (
-                                                                                            <a
-                                                                                                href={`${subItem.name}`}
-                                                                                                target="_blank"
-                                                                                                rel="noopener noreferrer"
-                                                                                            >
-                                                                                                {subItem.label}
-                                                                                            </a>
-                                                                                        ) : (
-                                                                                                <Link href={`/${subItem.name}`}>
-                                                                                                    <a>{subItem.label}</a>
-                                                                                                </Link>
-                                                                                            )}
-                                                                                    </li>
-                                                                                )}
+                                                                                <li className="drop-menu-item">
+                                                                                    {subItem.isExternal ? (
+                                                                                        <a
+                                                                                            href={`${subItem.name}`}
+                                                                                            target="_blank"
+                                                                                            rel="noopener noreferrer"
+                                                                                        >
+                                                                                            {subItem.label}
+                                                                                        </a>
+                                                                                    ) : (
+                                                                                        <Link href={`/${subItem.name}`}>
+                                                                                            <a>{subItem.label}</a>
+                                                                                        </Link>
+                                                                                    )}
+                                                                                </li>
+                                                                            )}
                                                                         </React.Fragment>
                                                                     );
                                                                 })}
                                                             </ul>
                                                         </li>
                                                     ) : (
-                                                            <li className="nav-item" {...rest}>
-                                                                {isExternal ? (
+                                                        <li className="nav-item" {...rest}>
+                                                            {isExternal ? (
+                                                                <a
+                                                                    className="nav-link"
+                                                                    href={`${name}`}
+                                                                    target="_blank"
+                                                                    rel="noopener noreferrer"
+                                                                >
+                                                                    {label}
+                                                                </a>
+                                                            ) : (
+                                                                <Link href={`/${name}`}>
                                                                     <a
                                                                         className="nav-link"
-                                                                        href={`${name}`}
-                                                                        target="_blank"
-                                                                        rel="noopener noreferrer"
+                                                                        role="button"
+                                                                        aria-expanded="false"
                                                                     >
                                                                         {label}
                                                                     </a>
-                                                                ) : (
-                                                                        <Link href={`/${name}`}>
-                                                                            <a
-                                                                                className="nav-link"
-                                                                                role="button"
-                                                                                aria-expanded="false"
-                                                                            >
-                                                                                {label}
-                                                                            </a>
-                                                                        </Link>
-                                                                    )}
-                                                            </li>
-                                                        )}
+                                                                </Link>
+                                                            )}
+                                                        </li>
+                                                    )}
                                                 </React.Fragment>
                                             );
                                         }
