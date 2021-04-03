@@ -91,11 +91,9 @@ const Events = () => {
                                             <img src={event.data.thumbnail.url} alt="" className="w-100 rounded-10" />
                                         </a>
                                         <div className="card-content px-5 pt-9 text-center">
-                                            <Link href="/">
-                                                <a>
-                                                    <h3 className="title gr-text-6 mb-2">{event.data.title[0].text}</h3>
-                                                </a>
-                                            </Link>
+                                            <a href={event.data.action_url.url} target="_blank">
+                                                <h3 className="title gr-text-6 mb-2">{event.data.title[0].text}</h3>
+                                            </a>
                                         </div>
                                     </div>
                                 </Col>

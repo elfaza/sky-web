@@ -3,10 +3,10 @@ import GlobalContext from "../context/GlobalContext";
 import { Row, Col, Container } from "react-bootstrap";
 
 import PageWrapper from "../components/PageWrapper";
-import Content3 from "../sections/landing6/Content3";
-import Locations from "../sections/landing3/Locations";
-import Services from "../sections/landing11/Services";
-import Content1 from "../sections/landing4/Content1";
+import Merch from "../sections/home/Merch";
+import Events from "../sections/home/Events";
+import Communities from "../sections/home/Communities";
+import SkyIntro from "../sections/home/SkyIntro";
 
 import bgSection from "../assets/image/thumbnail_videotron.jpg";
 
@@ -30,7 +30,7 @@ const IndexPage = () => {
                                     YukNgaji
                                 </h2>
                                 <p className="gr-text-8 mb-0">
-                                    Taat Bahagia Maksiat Sengasara
+                                    Komunitas berbagi kebaikan, Tambah Ilmu & Sahabat
                                 </p>
                             </div>
                         </Col>
@@ -63,13 +63,13 @@ const IndexPage = () => {
                 </Container>
             </div>
 
-            <Content1 />
+            <SkyIntro />
 
-            <Locations />
+            <Events />
 
-            <Services />
+            <Communities />
 
-            <Content3 />
+            <Merch />
         </PageWrapper>
     );
 };

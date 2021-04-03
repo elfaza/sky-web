@@ -13,13 +13,26 @@ import GlobalContext from "../../context/GlobalContext";
 
 import GlobalStyle from "../../utils/globalStyle";
 
-import imgFavicon from "../../assets/favicon.png";
+import androidFavicon16 from "../../assets/favicon/favicon-16x16.png";
+import androidFavicon32 from "../../assets/favicon/favicon-32x32.png";
+import androidFavicon96 from "../../assets/favicon/android-icon-96x96.png";
+import androidFavicon192 from "../../assets/favicon/android-icon-192x192.png";
+import appleFavicon57 from "../../assets/favicon/apple-icon-57x57.png";
+import appleFavicon60 from "../../assets/favicon/apple-icon-60x60.png";
+import appleFavicon72 from "../../assets/favicon/apple-icon-72x72.png";
+import appleFavicon76 from "../../assets/favicon/apple-icon-76x76.png";
+import appleFavicon114 from "../../assets/favicon/apple-icon-114x114.png";
+import appleFavicon120 from "../../assets/favicon/apple-icon-120x120.png";
+import appleFavicon144 from "../../assets/favicon/apple-icon-144x144.png";
+import appleFavicon152 from "../../assets/favicon/apple-icon-152x152.png";
+import appleFavicon180 from "../../assets/favicon/apple-icon-180x180.png";
+import msIcon from "../../assets/favicon/ms-icon-144x144.png";
+import manifest from "../../assets/favicon/manifest.json"
 
 import { get, merge } from "lodash";
 
 // the full theme object
 import { theme as baseTheme } from "../../utils";
-import ModalCommunity from "../ModalCommunity";
 
 const Loader = styled.div`
   position: fixed;
@@ -91,7 +104,23 @@ const Layout = ({ children, pageContext }) => {
                     <GlobalStyle />
                     <Head>
                         <title>YukNgaji</title>
-                        <link rel="icon" type="image/png" href={imgFavicon} />
+                        <link rel="apple-touch-icon" sizes="57x57" href={appleFavicon57} />
+                        <link rel="apple-touch-icon" sizes="60x60" href={appleFavicon60} />
+                        <link rel="apple-touch-icon" sizes="72x72" href={appleFavicon72} />
+                        <link rel="apple-touch-icon" sizes="76x76" href={appleFavicon76} />
+                        <link rel="apple-touch-icon" sizes="114x114" href={appleFavicon114} />
+                        <link rel="apple-touch-icon" sizes="120x120" href={appleFavicon120} />
+                        <link rel="apple-touch-icon" sizes="144x144" href={appleFavicon144} />
+                        <link rel="apple-touch-icon" sizes="152x152" href={appleFavicon152} />
+                        <link rel="apple-touch-icon" sizes="180x180" href={appleFavicon180} />
+                        <link rel="icon" type="image/png" sizes="192x192" href={androidFavicon192} />
+                        <link rel="icon" type="image/png" sizes="32x32" href={androidFavicon32} />
+                        <link rel="icon" type="image/png" sizes="96x96" href={androidFavicon96} />
+                        <link rel="icon" type="image/png" sizes="16x16" href={androidFavicon16} />
+                        <link rel="manifest" href={manifest} />
+                        <meta name="msapplication-TileColor" content="#ffffff" />
+                        <meta name="msapplication-TileImage" content={msIcon} />
+                        <meta name="theme-color" content="#ffffff"></meta>
                     </Head>
                     <Loader id="loading" className={visibleLoader ? "" : "inActive"}>
                         <div className="load-circle">
@@ -104,7 +133,6 @@ const Layout = ({ children, pageContext }) => {
                     </div>
 
                     <ModalVideo />
-                    <ModalCommunity />
                 </div>
             </ThemeProvider>
         );
@@ -121,7 +149,23 @@ const Layout = ({ children, pageContext }) => {
                     <GlobalStyle />
                     <Head>
                         <title>YukNgaji</title>
-                        <link rel="icon" type="image/png" href={imgFavicon} />
+                        <link rel="apple-touch-icon" sizes="57x57" href={appleFavicon57} />
+                        <link rel="apple-touch-icon" sizes="60x60" href={appleFavicon60} />
+                        <link rel="apple-touch-icon" sizes="72x72" href={appleFavicon72} />
+                        <link rel="apple-touch-icon" sizes="76x76" href={appleFavicon76} />
+                        <link rel="apple-touch-icon" sizes="114x114" href={appleFavicon114} />
+                        <link rel="apple-touch-icon" sizes="120x120" href={appleFavicon120} />
+                        <link rel="apple-touch-icon" sizes="144x144" href={appleFavicon144} />
+                        <link rel="apple-touch-icon" sizes="152x152" href={appleFavicon152} />
+                        <link rel="apple-touch-icon" sizes="180x180" href={appleFavicon180} />
+                        <link rel="icon" type="image/png" sizes="192x192" href={androidFavicon192} />
+                        <link rel="icon" type="image/png" sizes="32x32" href={androidFavicon32} />
+                        <link rel="icon" type="image/png" sizes="96x96" href={androidFavicon96} />
+                        <link rel="icon" type="image/png" sizes="16x16" href={androidFavicon16} />
+                        <link rel="manifest" href={manifest} />
+                        <meta name="msapplication-TileColor" content="#ffffff" />
+                        <meta name="msapplication-TileImage" content={msIcon} />
+                        <meta name="theme-color" content="#ffffff"></meta>
                     </Head>
                     <Loader id="loading" className={visibleLoader ? "" : "inActive"} />
                     <div className="site-wrapper overflow-hidden" ref={eleRef}>
@@ -132,7 +176,6 @@ const Layout = ({ children, pageContext }) => {
                     </div>
 
                     <ModalVideo />
-                    <ModalCommunity />
                 </div>
             </ThemeProvider>
         </>

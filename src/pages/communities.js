@@ -104,16 +104,19 @@ const Communities = () => {
                                             alt={community.data.name}
                                         />
                                         <div className="card-body bg-white rounded-bottom-10 px-7 py-6">
-                                            <Link href="#">
-                                                <a className="card-title gr-text-9 text-blackish-blue card-btn-link with-icon mb-0" onClick={e => {
-                                                    e.preventDefault();
-                                                    gContext.toggleCommunityModal();
-                                                    gContext.setActiveCommunity(community);
-                                                }}>
-                                                    {community.data.name}{" "}
-                                                    <i className="icon icon-tail-right font-weight-bold"></i>
-                                                </a>
-                                            </Link>
+                                            <a
+                                                className="card-title gr-text-9 text-blackish-blue card-btn-link with-icon mb-0"
+                                                href={community.data.info_url.url}
+                                                target="_blank"
+                                            // onClick={e => {
+                                            //     e.preventDefault();
+                                            //     gContext.toggleCommunityModal();
+                                            //     gContext.setActiveCommunity(community);
+                                            // }}
+                                            >
+                                                {community.data.name}{" "}
+                                                <i className="icon icon-tail-right font-weight-bold"></i>
+                                            </a>
                                         </div>
                                     </div>
                                 </Col>
