@@ -31,7 +31,7 @@ const Events = () => {
                             <div className="section-title text-center mb-11 mb-lg-19">
                                 <h2 className="title gr-text-4 mb-7">Events</h2>
                                 <p className="gr-text-8 px-lg-8 mb-0">
-                                    Temukan berbagai kegiatan seru komunitas YunNgaji di kota mu dan Nasional, dari mulai HangOut, kajian rutin, dan berbagai event online dan offline seru lain nya.
+                                    Temukan berbagai kegiatan seru komunitas YukNgaji di kota mu dan nasional, dari mulai HangOut, kajian rutin, dan berbagai event online & offline seru lain nya.
                                 </p>
                             </div>
                         </Col>
