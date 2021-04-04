@@ -17,10 +17,11 @@ const SkyIntro = () => {
                                     SKY - Studi Komprehensif YukNgaji
                                 </h2>
                                 <p className="gr-text-8 pr-4 mb-11">
-                                    Yuk temukan keindahan & kedamaian islam dalam kehidupan sehari-hari bersama SKY, pembahasan yang santai serta banyak metode pembelajaran seru dapat kamu temukan disini, Download sekarang!                                </p>
+                                    Yuk temukan keindahan & kedamaian islam dalam kehidupan sehari-hari bersama SKY, pembahasan yang santai serta banyak metode pembelajaran seru dapat kamu temukan disini, Download sekarang!
+                                </p>
                                 <div className="content-btn">
                                     <div className="row">
-                                        <div className="col-6">
+                                        <div className="col-sm-6 mb-5 mb-sm-0 d-flex justify-content-center justify-content-md-start">
                                             <form action="https://apps.apple.com/id/app/sky/id1544036214" target="_blank">
                                                 <Button type="submit" className="gr-hover-y">
                                                     <i class="fab fa-apple mr-4"></i>
@@ -28,7 +29,7 @@ const SkyIntro = () => {
                                                 </Button>
                                             </form>
                                         </div>
-                                        <div className="col-6">
+                                        <div className="col-sm-6 d-flex justify-content-center justify-content-md-start">
                                             <form action="https://play.google.com/store/apps/details?id=com.yukngaji.sky2" target="_blank">
                                                 <Button type="submit" className="gr-hover-y">
                                                     <i class="fab fa-google-play mr-4"></i>
