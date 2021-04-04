@@ -60,7 +60,8 @@ const Communities = () => {
                                     All Communities
                                 </h2>
                                 <p className="gr-text-8 mb-0">
-                                    Taat Bahagia Maksiat Sengasara
+                                    Ayo gabung bareng di komunitas YukNgaji yang ada di kota kamu dan temukan teman-teman hijrah lain nya yang ada di komunitas berbagi kebaikan se Indonesia!
+                                    #TambahIlmu&Sahabat
                                 </p>
                             </div>
                         </Col>
