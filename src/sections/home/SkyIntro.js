@@ -22,20 +22,20 @@ const SkyIntro = () => {
                                 <div className="content-btn">
                                     <div className="row">
                                         <div className="col-sm-6 mb-5 mb-sm-0 d-flex justify-content-center justify-content-md-start">
-                                            <form action="https://apps.apple.com/id/app/sky/id1544036214" target="_blank">
-                                                <Button type="submit" className="gr-hover-y">
+                                            <a href="https://apps.apple.com/id/app/sky/id1544036214" target="_blank" method="get">
+                                                <Button className="gr-hover-y">
                                                     <i class="fab fa-apple mr-4"></i>
                                                     Apple Store
                                                 </Button>
-                                            </form>
+                                            </a>
                                         </div>
                                         <div className="col-sm-6 d-flex justify-content-center justify-content-md-start">
-                                            <form action="https://play.google.com/store/apps/details?id=com.yukngaji.sky2" target="_blank">
-                                                <Button type="submit" className="gr-hover-y">
+                                            <a href="https://play.google.com/store/apps/details?id=com.yukngaji.sky2" target="_blank">
+                                                <Button className="gr-hover-y">
                                                     <i class="fab fa-google-play mr-4"></i>
                                                     Play Store
                                                 </Button>
-                                            </form>
+                                            </a>
                                         </div>
                                     </div>
                                 </div>
